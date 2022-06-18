@@ -1,0 +1,16 @@
+.separator
+{
+    background-color: grey;
+}
+
+.separator.separator--horizontal
+{
+    width: 100%;
+    min-height: 1px;
+}
+
+.separator.separator--vertical
+{
+    min-width: 1px;
+    height: 100%;
+}

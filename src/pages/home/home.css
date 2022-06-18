@@ -1,56 +1,82 @@
-.people
+.home-page h1
 {
-    padding: 10px;
+    text-align: center;
 }
 
-.people .toolbar
-{
+.people {
+    padding: 10px;
+    padding-bottom: 50px;
+    box-shadow: grey 0px 0px 10px 0px;
+}
+
+.people .toolbar {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     justify-content: space-between;
-    padding: 30px;
+    padding: 2vw;
 }
 
-
-.people .toolbar .input
-{
-    max-width: 500px;
+.people .pagination {
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.people .toolbar .button
-{
-    width: 2em;
-    height: 2em;
+.people .pagination .separator {
+    display: none;
 }
 
-
-.people table
+.people .table-wrapper
 {
-    width: 100%;
-    border-spacing: 0;
+    overflow: auto;
     box-shadow: lightgray 0px 5px 5px;
     border-radius: 4px;
-    overflow: hidden;
+}
+
+
+.people table {
+    width: 100%;
+    border-spacing: 0;
 }
 
 .people table th,
-.people table td
-{
+.people table td {
     text-align: start;
     padding: 10px;
     max-width: 20vw;
     word-wrap: break-word;
 }
 
-.people table img
-{
+.people table img {
     aspect-ratio: 1 / 1;
     object-fit: contain;
     width: 40px;
 }
 
 
-.people table tr:nth-child(2n + 1)
-{
-    background-color:#ddd;
+.people table tr:nth-child(2n + 1) {
+    background-color: #eee;
+}
+
+
+@media screen and (min-width: 600px) {
+    .people .pagination {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+
+    .people .pagination .separator {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 800px) {
+
+    .people .toolbar {
+        flex-wrap: nowrap;
+    }
+
+    .people .toolbar .input {
+        max-width: 500px;
+    }
 }

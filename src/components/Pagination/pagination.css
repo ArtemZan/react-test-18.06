@@ -12,6 +12,13 @@
     gap: 5px;
 }
 
+.pagination .pages .button
+{
+    min-width: 2em;
+    height: 2em;
+    padding: 5px 10px;
+}
+
 .pagination .pagination__range
 {
     white-space: nowrap;

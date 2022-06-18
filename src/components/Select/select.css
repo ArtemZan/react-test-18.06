@@ -8,6 +8,7 @@
 .select label
 {
     white-space: nowrap;
+    margin-right: 5px;
 }
 
 .select>.button
@@ -25,16 +26,16 @@
     visibility: hidden;
     transition: opacity 0.5s, visibility 0s 0.5s;
 
+    min-width: 50px;
+    padding: 5px;
 
     background-color: white;
     position: absolute;
     top: 100%;
     list-style: none;
-    padding: 5px 5px;
     box-shadow: grey 0px 0px 10px 0px;
     border-radius: 5px;
     cursor: default;
-    min-width: 50px;
 }
 
 .select.select--open .options
@@ -48,6 +49,5 @@
 .select .options li>.button
 {
     width: 100%;
-    height: auto;
     border-radius: 0;
 }

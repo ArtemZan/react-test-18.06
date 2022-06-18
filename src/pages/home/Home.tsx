@@ -1,39 +1,36 @@
-import Table from "./Table";
-import Toolbar from "./Toolbar";
-import { useRef, useState } from "react";
+import { useRef, useState } from "react"
+import Table from "./Table"
+import Toolbar from "./Toolbar"
+import { PaginationContextProvider } from "../../components/Pagination"
 
 import "./home.css"
-import { PaginationContextProvider } from "../../components/Pagination";
+import useMounted from "../../utils/useMouted"
+import useThrottle from "../../utils/useThrottle"
 
-function useThrottle(timeout: number)
-{
-    const timeoutId = useRef<NodeJS.Timeout>(null)
-
-    return (callback: (...args: any) => any, ...args: any) => {
-        if(timeoutId.current)
-        {
-            clearTimeout(timeoutId.current)
-        }
-
-        timeoutId.current = setTimeout(() => callback(...args), timeout)
-    }
-}
 
 export default function Home() {
     const [filter, setFilter] = useState("")
 
     const throttle = useThrottle(500)
 
-    function updateFilter(filter: string)
-    {
-        throttle(setFilter, filter)
+    const isMounted = useMounted()
+
+    function updateFilter(filter: string) {
+        throttle(() => {
+            if (isMounted.current) {
+                setFilter(filter)
+            }
+        })
     }
 
-    return <div className="people">
-        <PaginationContextProvider>
-            <Toolbar update={updateFilter} />
-            
-            <Table filter={filter} />
-        </PaginationContextProvider>
+    return <div className="page home-page">
+        <h1>Table with people</h1>
+        <div className="people">
+            <PaginationContextProvider>
+                <Toolbar update={updateFilter} />
+
+                <Table filter={filter} />
+            </PaginationContextProvider>
+        </div>
     </div>
 }

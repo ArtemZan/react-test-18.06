@@ -1,7 +1,19 @@
 body {
   margin: 0;
+  font-size: var(--m);
 }
 
 * {
   box-sizing: border-box;
+  font-family: "Roboto","Helvetica","Arial",sans-serif
+}
+
+:root
+{
+  --xs: calc(10px);
+  --s: calc(0.3vw + 10px);
+  --m: calc(0.4vw + 10px);
+  --l: calc(0.5vw + 14px);
+  --xl: calc(1vw + 16px);
+  --xxl: calc(1.5vw + 24px);
 }

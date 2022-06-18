@@ -45,7 +45,7 @@ function TableRow(props: Person) {
 export default function Table({ filter }: { filter: string }) {
     const [people, setPeople] = useState<Person[] | null>(null)
 
-    const notFound: ReactElement = <>Not found</>
+    const notFound: ReactElement = <p style = {{textAlign: "center"}}>No people found. Try changing the filter</p>
 
     const pagination = usePagination()
 
@@ -70,8 +70,7 @@ export default function Table({ filter }: { filter: string }) {
     function getMathedPeople() {
         const filters = filter.trim().toLowerCase().split(" ")
 
-        if(filters.length === 0)
-        {
+        if (filters.length === 0) {
             return people
         }
 
@@ -93,31 +92,32 @@ export default function Table({ filter }: { filter: string }) {
 
     const matched = getMathedPeople()
 
-    if (matched === null) {
+    if (matched.length === 0) {
         return notFound
     }
 
     pagination.setTotal(matched.length)
 
-    if((pagination.page - 1) * pagination.perPage > matched.length)
-    {
+    if ((pagination.page - 1) * pagination.perPage > matched.length) {
         pagination.setPage(Math.ceil(matched.length / pagination.perPage))
         return null
     }
 
-    return <table>
-        <tbody>
-            <tr>
-                <th>Avatar</th>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Company</th>
-                <th>Department</th>
-                <th>Start Date</th>
-            </tr>
-            {matched.slice((pagination.page - 1) * pagination.perPage, pagination.page * pagination.perPage).map((row: Person) => <TableRow key={row.id} {...row} />)}
-        </tbody>
-    </table>
+    return <div className="table-wrapper">
+        <table>
+            <tbody>
+                <tr>
+                    <th>Avatar</th>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Company</th>
+                    <th>Department</th>
+                    <th>Start Date</th>
+                </tr>
+                {matched.slice((pagination.page - 1) * pagination.perPage, pagination.page * pagination.perPage).map((row: Person) => <TableRow key={row.id} {...row} />)}
+            </tbody>
+        </table>
+    </div>
 }

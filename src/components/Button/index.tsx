@@ -1,14 +1,13 @@
-import { MouseEventHandler } from "react"
-import { CSSProperties, FormEventHandler } from "react"
+import { ButtonHTMLAttributes, MouseEventHandler } from "react"
+import { CSSProperties } from "react"
 
 import "./button.css"
 
 type ButtonProps = {
     onClick?: MouseEventHandler<HTMLButtonElement>
-    children: any
     disabled?: boolean,
     style?: CSSProperties
-}
+} & ButtonHTMLAttributes<HTMLButtonElement>
 
 export default function Button(props: ButtonProps)
 {
