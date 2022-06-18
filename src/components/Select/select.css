@@ -1,0 +1,53 @@
+.select
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.select label
+{
+    white-space: nowrap;
+}
+
+.select>.button
+{
+    position: relative;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    background-color: white;
+}
+
+.select .options
+{
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+
+
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    list-style: none;
+    padding: 5px 5px;
+    box-shadow: grey 0px 0px 10px 0px;
+    border-radius: 5px;
+    cursor: default;
+    min-width: 50px;
+}
+
+.select.select--open .options
+{
+    opacity: 1;
+    transition: opacity 0.5s;
+    visibility: visible;
+}
+
+
+.select .options li>.button
+{
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+}

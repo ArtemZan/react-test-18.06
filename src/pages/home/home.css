@@ -1,0 +1,56 @@
+.people
+{
+    padding: 10px;
+}
+
+.people .toolbar
+{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+
+.people .toolbar .input
+{
+    max-width: 500px;
+}
+
+.people .toolbar .button
+{
+    width: 2em;
+    height: 2em;
+}
+
+
+.people table
+{
+    width: 100%;
+    border-spacing: 0;
+    box-shadow: lightgray 0px 5px 5px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.people table th,
+.people table td
+{
+    text-align: start;
+    padding: 10px;
+    max-width: 20vw;
+    word-wrap: break-word;
+}
+
+.people table img
+{
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    width: 40px;
+}
+
+
+.people table tr:nth-child(2n + 1)
+{
+    background-color:#ddd;
+}

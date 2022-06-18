@@ -1,0 +1,34 @@
+.input {
+    position: relative;
+    width: 100%;
+    color: #333;
+}
+
+.input label
+{
+    position: absolute;
+    top: 50%;
+    left: 1px;
+    transform: translateY(-50%);
+    padding: 5px;
+    pointer-events: none;
+    
+    transition: font-size 0.25s, top 0.25s, left 0.25s;
+}
+
+.input input:focus~label,
+.input.input--not-empty input~label
+{
+    background-color: white;
+    color: #55e;
+    top: 0;
+    left: 1em;
+    font-size: 0.75em;
+}
+
+
+.input input {
+    padding: 10px;
+    width: 100%;
+    outline-color:#55e;
+}
